@@ -1,24 +1,72 @@
-import logo from './logo.svg';
 import './App.css';
+import PriceCard from './PriceCard/PriceCard';
 
 function App() {
+
+  var data = [
+    {
+      type : 'free',
+      price : '0',
+      currency: '$',
+      period: 'month',
+      features: [
+        {
+          title: 'single user'
+        },
+        {
+          title: '5gb storage'
+        }
+      ]
+    },
+    {
+      type : 'Premium',
+      price : '10',
+      currency: 'KSD',
+      period: 'month',
+      features: [
+        {
+          title: 'single user',
+          isBold: 'true'
+        },
+        {
+          title: '5gb storage',
+          isDisabled: 'true'
+        }
+      ]
+    },
+    {
+      type : 'VIP',
+      price : '10',
+      currency: '$',
+      period: 'month',
+      features: [
+        {
+          title: 'single user'
+        },
+        {
+          title: '5gb storage'
+        }
+      ]
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+    <section className="pricing py-5">
+      <div className="container">
+        <div className="row">
+          
+        {
+            
+            data.map((element) => {
+              return (<div className="col-lg-4">
+                <PriceCard data = {element}></PriceCard>
+              </div>);
+            })
+          }
+        </div>
+      </div>
+    </section>
+  </>
   );
 }
 
